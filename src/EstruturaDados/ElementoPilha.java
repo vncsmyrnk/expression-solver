@@ -1,4 +1,4 @@
-package Pilha;
+package EstruturaDados;
 
 public class ElementoPilha<T> {
 

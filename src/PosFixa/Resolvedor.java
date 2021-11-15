@@ -1,6 +1,6 @@
 package PosFixa;
 
-import Pilha.*;
+import EstruturaDados.*;
 
 public class Resolvedor {
     public static double resolver(String expressao) {
