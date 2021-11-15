@@ -18,14 +18,6 @@ Desenvolvido por:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
-        <sub>
-          <b>Iuri Silva</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
         <img src="https://github.com/vncsmyrnk.png" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Vinícius Mayrink (vncsmyrnk)</b>
