@@ -27,23 +27,32 @@ public class Resolvedor {
         Pilha<Caracter> pilhaOperadores = new Pilha<Caracter>();
         for (int i=0; i<expressao.length(); i++) {
             Caracter caracter = new Caracter(expressao.charAt(i));
-            // System.out.println("'" + caracter.getValor() + "'" + "/" + caracter.ehOperador());
             
             if (caracter.ehOperando()) {
                 posFixa += caracter.getValor();
                 continue;
             }
 
+            if (caracter.ehFechaParenteses()) {
+                Caracter topoAtualPilha = pilhaOperadores.pop();
+                while (topoAtualPilha != null && !topoAtualPilha.ehAbreParenteses()) {
+                    posFixa += topoAtualPilha.getValor();
+                    topoAtualPilha = pilhaOperadores.pop();
+                }
+                continue;        
+            }
+
             Caracter topoPilha = pilhaOperadores.peek();
-            if (topoPilha == null || caracter.possuiPrioridadeMenorQue(topoPilha)) {
+
+            if (topoPilha == null || caracter.possuiPrioridadeMenorQue(topoPilha) || caracter.ehAbreParenteses()) {
                 pilhaOperadores.push(caracter);
                 continue;
             }
 
-            Caracter novoTopoPilha = pilhaOperadores.pop();
-            while (novoTopoPilha != null && novoTopoPilha.possuiPrioridadeMaiorOuIgualQue(caracter)) {
-                posFixa += novoTopoPilha.getValor();
-                novoTopoPilha = pilhaOperadores.pop();
+            while (topoPilha != null && topoPilha.possuiPrioridadeMaiorOuIgualQue(caracter)) {
+                topoPilha = pilhaOperadores.pop();
+                posFixa += topoPilha.getValor();
+                topoPilha = pilhaOperadores.peek();
             }
 
             pilhaOperadores.push(caracter);

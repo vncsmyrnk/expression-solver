@@ -31,6 +31,14 @@ public class Caracter {
         return this.getPrioridade() > c.getPrioridade();
     }
 
+    public boolean ehAbreParenteses() {
+        return this.valor == '(';
+    }
+
+    public boolean ehFechaParenteses() {
+        return this.valor == ')';
+    }
+
     public String toString() {
         return String.valueOf(this.valor);
     }
